@@ -85,6 +85,15 @@
                                 </td>
                             </tr>
                         
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                  <label for="event"><g:message code="bet.event.label" default="Event" /></label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: betInstance, field: 'event', 'errors')}">
+                                    <g:textField name="event" value="${betInstance?.event}" />
+                                </td>
+                            </tr>
+                        
                         </tbody>
                     </table>
                 </div>
