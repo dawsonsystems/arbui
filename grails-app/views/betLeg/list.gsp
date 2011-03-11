@@ -24,15 +24,15 @@
                         
                             <g:sortableColumn property="id" title="${message(code: 'betLeg.id.label', default: 'Id')}" />
                         
-                            <th><g:message code="betLeg.bet.label" default="Bet" /></th>
+                            <g:sortableColumn property="output" title="${message(code: 'betLeg.output.label', default: 'Output')}" />
                         
-                            <th><g:message code="betLeg.bookie.label" default="Bookie" /></th>
+                            <g:sortableColumn property="profit" title="${message(code: 'betLeg.profit.label', default: 'Profit')}" />
+                        
+                            <g:sortableColumn property="totalReturn" title="${message(code: 'betLeg.totalReturn.label', default: 'Total Return')}" />
                         
                             <g:sortableColumn property="endProfit" title="${message(code: 'betLeg.endProfit.label', default: 'End Profit')}" />
                         
-                            <g:sortableColumn property="input" title="${message(code: 'betLeg.input.label', default: 'Input')}" />
-                        
-                            <g:sortableColumn property="output" title="${message(code: 'betLeg.output.label', default: 'Output')}" />
+                            <th><g:message code="betLeg.bet.label" default="Bet" /></th>
                         
                         </tr>
                     </thead>
@@ -42,15 +42,15 @@
                         
                             <td><g:link action="show" id="${betLegInstance.id}">${fieldValue(bean: betLegInstance, field: "id")}</g:link></td>
                         
-                            <td>${fieldValue(bean: betLegInstance, field: "bet")}</td>
+                            <td>${fieldValue(bean: betLegInstance, field: "output")}</td>
                         
-                            <td>${fieldValue(bean: betLegInstance, field: "bookie")}</td>
+                            <td>${fieldValue(bean: betLegInstance, field: "profit")}</td>
+                        
+                            <td>${fieldValue(bean: betLegInstance, field: "totalReturn")}</td>
                         
                             <td>${fieldValue(bean: betLegInstance, field: "endProfit")}</td>
                         
-                            <td>${fieldValue(bean: betLegInstance, field: "input")}</td>
-                        
-                            <td>${fieldValue(bean: betLegInstance, field: "output")}</td>
+                            <td>${fieldValue(bean: betLegInstance, field: "bet")}</td>
                         
                         </tr>
                     </g:each>

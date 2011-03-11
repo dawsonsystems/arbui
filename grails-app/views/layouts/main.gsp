@@ -71,6 +71,9 @@
         <tr><th>Moneybookers</th><td>&pound;${moneybookersTotal}</td></tr>
         <tr><th>Pot Size</th><td>&pound;${potSize}</td></tr>
         <tr><th>Current Liabilities</th><td>&pound;${liabilities}</td></tr>
+        <tr><th>30 day profit</th><td>&pound;${profit30}</td></tr>
+        <tr><th>2 week profit</th><td>&pound;${profit14}</td></tr>
+        <tr><th>Week profit</th><td>&pound;${profit7}</td></tr>
       </table>
 
       <br/><h1>Bookie Totals</h1>
@@ -79,8 +82,13 @@
           <tr><th>${it.name}</th><td>&pound;${it.lastTransaction?.bookieBalance}</td></tr>
         </g:each>
       </table>
+      
+      <hr style="margin-top:15px; margin-bottom:6px;"/>
+      <h1>Actions</h1>
+      <hr/>
+      <span class="menuButton"><g:link class="list" controller="moneyBookersTransaction" action="create">Moneybookers TX</g:link></span>
+      <hr style="margin-top:5px;margin-bottom:5px;"/>
       <span class="menuButton"><g:link class="create" controller="bookie" action="create">Create new Bookie</g:link></span>
-
     </div>
     <div class="panelBtm"></div>
   </div>

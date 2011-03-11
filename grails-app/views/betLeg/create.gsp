@@ -30,55 +30,10 @@
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                    <label for="bet"><g:message code="betLeg.bet.label" default="Bet" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: betLegInstance, field: 'bet', 'errors')}">
-                                    <g:select name="bet.id" from="${arb.Bet.list()}" optionKey="id" value="${betLegInstance?.bet?.id}"  />
-                                </td>
-                            </tr>
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="bookie"><g:message code="betLeg.bookie.label" default="Bookie" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: betLegInstance, field: 'bookie', 'errors')}">
-                                    <g:select name="bookie.id" from="${arb.Bookie.list()}" optionKey="id" value="${betLegInstance?.bookie?.id}"  />
-                                </td>
-                            </tr>
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="endProfit"><g:message code="betLeg.endProfit.label" default="End Profit" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: betLegInstance, field: 'endProfit', 'errors')}">
-                                    <g:textField name="endProfit" value="${fieldValue(bean: betLegInstance, field: 'endProfit')}" />
-                                </td>
-                            </tr>
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="input"><g:message code="betLeg.input.label" default="Input" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: betLegInstance, field: 'input', 'errors')}">
-                                    <g:textField name="input" value="${fieldValue(bean: betLegInstance, field: 'input')}" />
-                                </td>
-                            </tr>
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
                                     <label for="output"><g:message code="betLeg.output.label" default="Output" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: betLegInstance, field: 'output', 'errors')}">
                                     <g:textField name="output" value="${fieldValue(bean: betLegInstance, field: 'output')}" />
-                                </td>
-                            </tr>
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="party"><g:message code="betLeg.party.label" default="Party" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: betLegInstance, field: 'party', 'errors')}">
-                                    <g:textField name="party" value="${betLegInstance?.party}" />
                                 </td>
                             </tr>
                         
@@ -97,6 +52,42 @@
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: betLegInstance, field: 'totalReturn', 'errors')}">
                                     <g:textField name="totalReturn" value="${fieldValue(bean: betLegInstance, field: 'totalReturn')}" />
+                                </td>
+                            </tr>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="endProfit"><g:message code="betLeg.endProfit.label" default="End Profit" /></label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: betLegInstance, field: 'endProfit', 'errors')}">
+                                    <g:textField name="endProfit" value="${fieldValue(bean: betLegInstance, field: 'endProfit')}" />
+                                </td>
+                            </tr>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="bet"><g:message code="betLeg.bet.label" default="Bet" /></label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: betLegInstance, field: 'bet', 'errors')}">
+                                    <g:select name="bet.id" from="${arb.Bet.list()}" optionKey="id" value="${betLegInstance?.bet?.id}"  />
+                                </td>
+                            </tr>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="bookie"><g:message code="betLeg.bookie.label" default="Bookie" /></label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: betLegInstance, field: 'bookie', 'errors')}">
+                                    <g:select name="bookie.id" from="${arb.Bookie.list()}" optionKey="id" value="${betLegInstance?.bookie?.id}"  />
+                                </td>
+                            </tr>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="input"><g:message code="betLeg.input.label" default="Input" /></label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: betLegInstance, field: 'input', 'errors')}">
+                                    <g:textField name="input" value="${fieldValue(bean: betLegInstance, field: 'input')}" />
                                 </td>
                             </tr>
                         

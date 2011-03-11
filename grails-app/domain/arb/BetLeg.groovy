@@ -8,12 +8,15 @@ class BetLeg {
   BigDecimal profit
   BigDecimal totalReturn
   BigDecimal endProfit
-  static belongsTo = Bet
+
+  //static belongsTo = Bet
+
   static constraints = {
     output(nullable:true)
     profit(nullable:true)
     totalReturn(nullable:true)
     endProfit(nullable:true)
+    bet(nullable:true)
   }
 
   void recordLoss() {

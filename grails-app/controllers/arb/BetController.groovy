@@ -15,14 +15,16 @@ class BetController {
       leg.bet.totalProfit = leg.profit
 
       BetLeg winningLeg = leg
-      BetLeg losingLeg = leg.bet.lega == leg ? leg.bet.lega : leg.bet.legb
+      BetLeg losingLeg = leg.bet.lega == leg ? leg.bet.legb : leg.bet.lega
 
-      //TODO create a winning TX adding to winning bookie
+      losingLeg.bookie.transaction(new BookieTransaction(betLeg:losingLeg, moneyOut:losingLeg.input))
+      losingLeg.bookie.save(flush:true)
+      
+      def winnings = losingLeg.input + winningLeg.profit
+      winningLeg.bookie.transaction(new BookieTransaction(betLeg:winningLeg, moneyIn:winnings))
 
-
-      //TODO create a losing TX losing bookie
-      winningLeg.bookie.transaction(new BookieTransaction())
-
+      flash.message="Arb result recorded and arb record has been closed"
+      redirect(action:"index", controller:"home")
     }
 
     def list = {
@@ -38,6 +40,12 @@ class BetController {
 
     def save = {
         def betInstance = new Bet(params)
+
+        betInstance.lega.save()
+        betInstance.legb.save()
+        betInstance.lega.bet = betInstance
+        betInstance.legb.bet = betInstance
+
         if (betInstance.save(flush: true)) {
             flash.message = "${message(code: 'default.created.message', args: [message(code: 'bet.label', default: 'Bet'), betInstance.id])}"
             redirect(action: "index", controller:"home")

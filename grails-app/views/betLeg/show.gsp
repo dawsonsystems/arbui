@@ -30,44 +30,9 @@
                         </tr>
                     
                         <tr class="prop">
-                            <td valign="top" class="name"><g:message code="betLeg.bet.label" default="Bet" /></td>
-                            
-                            <td valign="top" class="value"><g:link controller="bet" action="show" id="${betLegInstance?.bet?.id}">${betLegInstance?.bet?.encodeAsHTML()}</g:link></td>
-                            
-                        </tr>
-                    
-                        <tr class="prop">
-                            <td valign="top" class="name"><g:message code="betLeg.bookie.label" default="Bookie" /></td>
-                            
-                            <td valign="top" class="value"><g:link controller="bookie" action="show" id="${betLegInstance?.bookie?.id}">${betLegInstance?.bookie?.encodeAsHTML()}</g:link></td>
-                            
-                        </tr>
-                    
-                        <tr class="prop">
-                            <td valign="top" class="name"><g:message code="betLeg.endProfit.label" default="End Profit" /></td>
-                            
-                            <td valign="top" class="value">${fieldValue(bean: betLegInstance, field: "endProfit")}</td>
-                            
-                        </tr>
-                    
-                        <tr class="prop">
-                            <td valign="top" class="name"><g:message code="betLeg.input.label" default="Input" /></td>
-                            
-                            <td valign="top" class="value">${fieldValue(bean: betLegInstance, field: "input")}</td>
-                            
-                        </tr>
-                    
-                        <tr class="prop">
                             <td valign="top" class="name"><g:message code="betLeg.output.label" default="Output" /></td>
                             
                             <td valign="top" class="value">${fieldValue(bean: betLegInstance, field: "output")}</td>
-                            
-                        </tr>
-                    
-                        <tr class="prop">
-                            <td valign="top" class="name"><g:message code="betLeg.party.label" default="Party" /></td>
-                            
-                            <td valign="top" class="value">${fieldValue(bean: betLegInstance, field: "party")}</td>
                             
                         </tr>
                     
@@ -82,6 +47,34 @@
                             <td valign="top" class="name"><g:message code="betLeg.totalReturn.label" default="Total Return" /></td>
                             
                             <td valign="top" class="value">${fieldValue(bean: betLegInstance, field: "totalReturn")}</td>
+                            
+                        </tr>
+                    
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="betLeg.endProfit.label" default="End Profit" /></td>
+                            
+                            <td valign="top" class="value">${fieldValue(bean: betLegInstance, field: "endProfit")}</td>
+                            
+                        </tr>
+                    
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="betLeg.bet.label" default="Bet" /></td>
+                            
+                            <td valign="top" class="value"><g:link controller="bet" action="show" id="${betLegInstance?.bet?.id}">${betLegInstance?.bet?.encodeAsHTML()}</g:link></td>
+                            
+                        </tr>
+                    
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="betLeg.bookie.label" default="Bookie" /></td>
+                            
+                            <td valign="top" class="value"><g:link controller="bookie" action="show" id="${betLegInstance?.bookie?.id}">${betLegInstance?.bookie?.encodeAsHTML()}</g:link></td>
+                            
+                        </tr>
+                    
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="betLeg.input.label" default="Input" /></td>
+                            
+                            <td valign="top" class="value">${fieldValue(bean: betLegInstance, field: "input")}</td>
                             
                         </tr>
                     
