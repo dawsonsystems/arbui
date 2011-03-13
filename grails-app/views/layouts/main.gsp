@@ -78,7 +78,7 @@
 
       <br/><h1>Bookie Totals</h1>
       <table>
-        <g:each in="${arb.Bookie.list()}">
+        <g:each in="${arb.Bookie.list().sort{ it.name }}">
           <tr><th>${it.name}</th><td>&pound;${it.lastTransaction?.bookieBalance}</td></tr>
         </g:each>
       </table>
