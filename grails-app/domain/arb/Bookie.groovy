@@ -8,6 +8,8 @@ class Bookie {
 
   BookieTransaction lastTransaction
 
+  static transients = ['availableBalance']
+  
   def transaction(BookieTransaction transaction) {
 
     def balance = lastTransaction?.bookieBalance ?:  0
@@ -29,6 +31,28 @@ class Bookie {
 
     addToTransactions(transaction)
     this.save(flush:true)
+  }
+
+  //Total - liability
+  def getAvailableBalance() {
+
+    def activeBetLegs = BetLeg.withCriteria {
+      eq("bookie", this)
+      bet {
+        isNull("winningLeg")
+      }
+    }
+
+    def liability = activeBetLegs.sum { it.input }
+
+    if (liability == null) {
+      liability = 0
+    }
+
+    if (lastTransaction) {
+      return lastTransaction.bookieBalance - liability
+    }
+    return 0
   }
 
   static hasMany = [transactions:BookieTransaction]

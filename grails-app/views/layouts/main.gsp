@@ -78,8 +78,8 @@
 
       <br/><h1>Bookie Totals</h1>
       <table>
-        <g:each in="${arb.Bookie.list().sort{ it.name }}">
-          <tr><th>${it.name}</th><td>&pound;${it.lastTransaction?.bookieBalance}</td></tr>
+        <g:each in="${arb.Bookie.list().sort{ it.name }}" var="bookie">
+          <tr><th><g:link controller="bookie" action="show" id="${bookie.id}">${bookie.name}</g:link></th><td style="font-weight:bold;">&pound;${bookie.availableBalance}</td><td style="font-size:0.5em">(&pound;${bookie.lastTransaction?.bookieBalance})</td></tr>
         </g:each>
       </table>
       

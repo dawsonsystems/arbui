@@ -19,10 +19,9 @@ class BetController {
 
       losingLeg.bookie.transaction(new BookieTransaction(betLeg:losingLeg, moneyOut:losingLeg.input))
       losingLeg.bookie.save(flush:true)
-      
-      def winnings = winningLeg.input + winningLeg.profit
-      winningLeg.bookie.transaction(new BookieTransaction(betLeg:winningLeg, moneyIn:winnings))
 
+      winningLeg.bookie.transaction(new BookieTransaction(betLeg:winningLeg, moneyIn:winningLeg.profit))
+      winningLeg.bookie.save(flush:true)
       flash.message="Arb result recorded and arb record has been closed"
       redirect(action:"index", controller:"home")
     }

@@ -30,15 +30,6 @@
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                    <label for="lastTransaction"><g:message code="bookie.lastTransaction.label" default="Last Transaction" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: bookieInstance, field: 'lastTransaction', 'errors')}">
-                                    <g:select name="lastTransaction.id" from="${arb.BookieTransaction.list()}" optionKey="id" value="${bookieInstance?.lastTransaction?.id}"  />
-                                </td>
-                            </tr>
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
                                     <label for="login"><g:message code="bookie.login.label" default="Login" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: bookieInstance, field: 'login', 'errors')}">
