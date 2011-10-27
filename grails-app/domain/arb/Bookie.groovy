@@ -40,6 +40,7 @@ class Bookie {
       eq("bookie", this)
       bet {
         isNull("winningLeg")
+        eq("voided", false)
       }
     }
 

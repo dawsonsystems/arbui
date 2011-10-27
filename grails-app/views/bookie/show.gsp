@@ -80,6 +80,13 @@
                     <span class="button"><g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" /></span>
                 </g:form>
             </div>
+            <div class="dialog">
+                <g:form method="get" action="addBonus">
+                    <g:hiddenField name="id" value="${bookieInstance?.id}" />
+                    <label>Add Bonus Amount <input type="text" name="amount"></label>
+                    <input type="submit" value="Add"/>
+                </g:form>
+            </div>
         </div>
     </body>
 </html>

@@ -25,7 +25,10 @@ class AppFilters {
 
     def liability = 0
 
-    Bet.findAllByWinningLegIsNull().each {
+    Bet.withCriteria {
+      eq("voided", false)
+      isNull("winningLeg")
+    }.each {
       liability += it.lega.input
       liability += it.legb.input
     }
@@ -39,5 +42,6 @@ class AppFilters {
     request.profit30 = statsService.profitOverPreviousDays(30)
     request.profit14 = statsService.profitOverPreviousDays(14)
     request.profit7 = statsService.profitOverPreviousDays(7)
+    request.profit1 = statsService.profitOverPreviousDays(1)
   }
 }

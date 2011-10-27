@@ -4,8 +4,16 @@ class HomeController {
 
     def index = {
 
-      def currentArbs = Bet.findAllByEndGreaterThanEqualsAndWinningLegIsNull(new Date()).sort {it.end}
-      def arbsToClose =Bet.findAllByEndLessThanAndWinningLegIsNull(new Date()).sort {it.end}
+      def currentArbs = Bet.withCriteria {
+        ge("end", new Date())
+        eq("voided", false)
+        isNull("winningLeg")
+      }
+      def arbsToClose = Bet.withCriteria {
+        lt("end", new Date())
+        eq("voided", false)
+        isNull("winningLeg")
+      }
 
       [activeArbs:currentArbs, expiredArbs:arbsToClose]
     }

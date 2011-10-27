@@ -4,6 +4,7 @@ class Bet {
   Date start = new Date()
   Date end
   String event
+  boolean voided = false
 
   BetLeg lega
   BetLeg legb
@@ -23,6 +24,7 @@ class Bet {
   static mapping = {
     start column:'start_date'
     end column:'end_date'
+    sort end:"desc"
   }
 }
 

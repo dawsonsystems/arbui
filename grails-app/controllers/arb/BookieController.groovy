@@ -97,4 +97,26 @@ class BookieController {
             redirect(action: "list")
         }
     }
+
+  def addBonus = {
+    def bookieInstance = Bookie.get(params.id)
+
+    if (bookieInstance) {
+
+      def bonusAmount = new BigDecimal(params.amount)
+      println "Saving Bookie Transact"
+      //generate a new bookie transaction for this
+      def bookieTransaction = new BookieTransaction()
+      bookieTransaction.moneyIn = bonusAmount
+
+      bookieInstance.transaction(bookieTransaction)
+
+        flash.message = "${message(code: 'default.deleted.message', args: [message(code: 'bookie.label', default: 'Bookie'), params.id])}"
+        redirect(action: "show", id: params.id)
+      }
+      else {
+        flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'bookie.label', default: 'Bookie'), params.id])}"
+        redirect(action: "list")
+      }
+  }
 }
