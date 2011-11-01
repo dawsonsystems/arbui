@@ -1,5 +1,5 @@
 
-<%@ page import="arb.Bookie" %>
+<%@ page import="arb.BookieTransaction; arb.Bookie" %>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -49,27 +49,10 @@
                             <td valign="top" class="value">${fieldValue(bean: bookieInstance, field: "name")}</td>
                             
                         </tr>
-                    
                         <tr class="prop">
                             <td valign="top" class="name"><g:message code="bookie.securityAnswer.label" default="Security Answer" /></td>
-                            
                             <td valign="top" class="value">${fieldValue(bean: bookieInstance, field: "securityAnswer")}</td>
-                            
                         </tr>
-                    
-                        <tr class="prop">
-                            <td valign="top" class="name"><g:message code="bookie.transactions.label" default="Transactions" /></td>
-                            
-                            <td valign="top" style="text-align: left;" class="value">
-                                <ul>
-                                <g:each in="${bookieInstance.transactions}" var="t">
-                                    <li><g:link controller="bookieTransaction" action="show" id="${t.id}">${t?.encodeAsHTML()}</g:link></li>
-                                </g:each>
-                                </ul>
-                            </td>
-                            
-                        </tr>
-                    
                     </tbody>
                 </table>
             </div>
@@ -87,6 +70,38 @@
                     <input type="submit" value="Add"/>
                 </g:form>
             </div>
+        </div>
+        <div id="txList" style="clear:left; padding-top:30px;">
+            <h2 style="margin-bottom:10px">Transaction List</h2>
+            <table>
+                <tr>
+                    <th>Date</th>
+                    <th>Type</th>
+                    <th>In</th>
+                    <th>Out</th>
+                    <th>Balance</th>
+                </tr>
+                <g:each in="${BookieTransaction.findAllByBookie(bookieInstance, [sort:'dateCreated', order:'desc'])}">
+                <tr>
+                    <td>${it.dateCreated}</td>
+                    <td>
+                        <g:if test="${it.moneyBookersTransaction}">
+                            MoneyBookers Transfer
+                        </g:if>
+                        <g:elseif test="${it.betLeg}">
+                            Arb
+                        </g:elseif>
+                        <g:else>
+                            Bonus
+                        </g:else>
+                    </td>
+                    <td><g:formatNumber type="currency" currencyCode="GBP" number="${it.moneyIn}"/></td>
+                    <td><g:formatNumber type="currency" currencyCode="GBP" number="${it.moneyOut}"/></td>
+                    <td><g:formatNumber type="currency" currencyCode="GBP" number="${it.bookieBalance}"/></td>
+
+                </tr>
+                </g:each>
+            </table>
         </div>
     </body>
 </html>
