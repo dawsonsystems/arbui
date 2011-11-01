@@ -34,7 +34,7 @@
             <g:link controller="moneyBookersTransaction" action="create" class="create">MoneyBookers TX</g:link>
             <h3 style="margin-top:8px">Bookies</h3>
             <table>
-            <g:each in="${Bookie.findAll()}" var="bookie">
+            <g:each in="${Bookie.findAll([sort:'name'])}" var="bookie">
                 <tr><th><g:link controller="bookie" action="show" id="${bookie.id}">${bookie.name}</g:link></th><td><span style="font-weight: bold"><g:formatNumber type="currency" currencyCode="GBP" number="${bookie.availableBalance}"/></span> <span style="font-size: 0.7em">(<g:formatNumber type="currency" currencyCode="GBP" number="${bookie.lastTransaction?.bookieBalance}"/>)</span></td></tr>
             </g:each>
             </table>
