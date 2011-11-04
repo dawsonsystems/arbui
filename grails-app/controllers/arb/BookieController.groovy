@@ -110,12 +110,11 @@ class BookieController {
       bookieTransaction.moneyIn = bonusAmount
 
       bookieInstance.transaction(bookieTransaction)
-
-        flash.message = "${message(code: 'default.deleted.message', args: [message(code: 'bookie.label', default: 'Bookie'), params.id])}"
+        flash.message = "Added bonus"
         redirect(action: "show", id: params.id)
       }
       else {
-        flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'bookie.label', default: 'Bookie'), params.id])}"
+        flash.message = "Bookie not found"
         redirect(action: "list")
       }
   }
